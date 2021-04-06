@@ -30,13 +30,7 @@ class _SecondPageState extends State<SecondPage> {
             buttonRounded(
               context,
               "Show".tr,
-              () {
-                Get.defaultDialog(
-                    title: "Dialog showing",
-                    middleText: "This is get default dialog view",
-                    textCancel: "Cancel",
-                    textConfirm: "Ok");
-              },
+              showDialog,
             ),
             buttonOutline(context, "Change Theme".tr, "", true, () {
               bool isDarkMode = appdata.read(PreferenceKey.darkMode);
@@ -59,5 +53,16 @@ class _SecondPageState extends State<SecondPage> {
         ),
       ),
     );
+  }
+
+  void showDialog() {
+    Get.defaultDialog(
+        title: "Dialog showing",
+        middleText: "This is get default dialog view",
+        textCancel: "Cancel",
+        textConfirm: "Ok",
+        titleStyle: Get.theme.textTheme.headline2,
+        middleTextStyle: Get.theme.textTheme.headline2,
+        backgroundColor: Get.theme.primaryColor);
   }
 }

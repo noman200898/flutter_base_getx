@@ -1,5 +1,5 @@
+import 'package:base_application/ui/bottom_navigation/bottom_bar_page.dart';
 import 'package:base_application/ui/home/home_controller.dart';
-import 'package:base_application/ui/home/home_page.dart';
 import 'package:base_application/utils/app_theme.dart';
 import 'package:base_application/utils/constants.dart';
 import 'package:base_application/utils/strings.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       locale: Locale("bn", "BD"),
       fallbackLocale: Locale("en", "US"),
       initialRoute: "/",
-      home: HomePage(title: 'Home Page'.tr),
+      home: BottomBarPage(),
     );
   }
 }

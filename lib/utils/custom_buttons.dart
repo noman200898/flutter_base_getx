@@ -44,7 +44,7 @@ Widget buttonRounded(BuildContext context, String text, VoidCallback onPressCall
                 )
             )
         ),
-        onPressed: () => onPressCallback
+        onPressed: onPressCallback
     )
   );
 }
