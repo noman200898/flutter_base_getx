@@ -1,3 +1,4 @@
+import 'package:base_application/di/dependency_injection.dart';
 import 'package:base_application/ui/bottom_navigation/bottom_bar_page.dart';
 import 'package:base_application/ui/home/home_controller.dart';
 import 'package:base_application/utils/app_theme.dart';
@@ -8,8 +9,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 void main() async {
+  setup();
   await GetStorage.init();
-  Get.put(HomeController());
+  Get.put(HomeController(repository: Get.find()));
   runApp(MyApp());
 }
 

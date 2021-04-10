@@ -1,3 +1,4 @@
+import 'package:base_application/ui/home/home_states.dart';
 import 'package:base_application/ui/second_page.dart';
 import 'package:base_application/utils/constants.dart';
 import 'package:base_application/utils/custom_buttons.dart';
@@ -9,7 +10,7 @@ import 'package:get/get.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({required this.title});
 
   final String title;
 
@@ -36,6 +37,23 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Obx(() {
+              var homeState = _controller.homeState.value;
+              if(homeState is HomeLoadingState)
+                return CircularProgressIndicator();
+              else if(homeState is HomeLoadedState) {
+                var response = homeState.response;
+                if(response.message!=null)
+                  return Text(response.message!);
+                else return Container();
+              }else{
+                //Exception e = (homeState as HomeErrorState).e;
+                // Get.snackbar("Error", e.toString(),
+                //     snackPosition: SnackPosition.BOTTOM, duration: Duration(seconds: 2));
+                return Container();
+              }
+
+            }),
             Image.asset(
               AssetConstants.img_banner_demo,
               width: dp150,
