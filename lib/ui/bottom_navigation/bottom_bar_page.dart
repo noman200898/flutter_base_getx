@@ -28,9 +28,6 @@ class BottomBarPage extends StatelessWidget {
 }
 
 class BaseBottomNavigationBar extends StatelessWidget {
-  const BaseBottomNavigationBar({
-    Key key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
